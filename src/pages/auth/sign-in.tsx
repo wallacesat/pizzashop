@@ -2,6 +2,7 @@ import { Label } from '@radix-ui/react-label'
 import { CircleCheck, CircleX } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
@@ -12,21 +13,20 @@ const signInForm = z.object({
   email: z.string().email(),
 })
 
-type SignInform = z.infer<typeof signInForm>
+type SignInForm = z.infer<typeof signInForm>
 
 export function SignIn() {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SignInform>()
+  } = useForm<SignInForm>()
 
-  async function handleSignIn(data: SignInform) {
+  async function handleSignIn(data: SignInForm) {
     try {
-      throw new Error('')
-
       await new Promise((resolve) => setTimeout(resolve, 2000))
-      toast.success('Cadastro efetuado 😃', {
+
+      toast.success('Sucesso!', {
         dismissible: true,
         icon: <CircleCheck />,
         description: 'Link de autenticação enviado para o seu e-mail.',
@@ -36,9 +36,10 @@ export function SignIn() {
         },
       })
     } catch (error) {
-      toast.error('Ops! Credenciais inválidas', {
+      toast.error('Ops!', {
         dismissible: true,
         icon: <CircleX />,
+        description: 'Credenciais inválidas.',
       })
     }
   }
@@ -48,11 +49,16 @@ export function SignIn() {
       <Helmet title="Login" />
 
       <div className="p-8">
+        <Button variant="ghost" className="absolute right-8 top-8" asChild>
+          <Link to="/sign-up">Novo estabelecimento</Link>
+        </Button>
+
         <div className="flex w-[350px] flex-col justify-center gap-6">
           <div className="gap-2- flex flex-col text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
               Acessar painel
             </h1>
+
             <p className="text-sm text-muted-foreground">
               Acompanhe suas vendas pelo painel do parceiro
             </p>
