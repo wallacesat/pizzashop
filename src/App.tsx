@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
+import './global.css'
 
-import "./global.css"
+import { Button } from '@/components/ui/button'
 
 export function App() {
-
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Button variant="destructive" >Enviar</Button>
+    <div className="flex h-screen items-center justify-center">
+      <Button variant="destructive">Enviar</Button>
     </div>
   )
 }
