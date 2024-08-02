@@ -10,10 +10,13 @@ export const api = axios.create({
 if (env.VITE_ENABLE_API_DELAY) {
   api.interceptors.request.use(async (config) => {
     await new Promise((resolve) => {
-      const time = setTimeout(() => {
-        clearTimeout(time)
-        return resolve(null)
-      }, 2000)
+      const time = setTimeout(
+        () => {
+          clearTimeout(time)
+          return resolve(null)
+        },
+        Math.round(Math.random() * 3000),
+      )
     })
 
     return config
