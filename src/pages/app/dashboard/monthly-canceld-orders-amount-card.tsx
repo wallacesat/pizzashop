@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { DollarSign } from 'lucide-react'
 
-import { getMonthlyCanceledOrdersAmount } from '@/api/get-montlhy-canceled-orders-amount'
+import { getMonthlyCanceledOrdersAmount } from '@/api/get-monthly-canceled-orders-amount'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { MetricCardSkeleton } from './metric-card-skeleton'
