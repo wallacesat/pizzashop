@@ -8,11 +8,11 @@ export const getManagedRestaurantMock = http.get<
   GetManagedRestaurantResponse
 >('/managed-restaurant', () => {
   return HttpResponse.json({
-    id: 'abc12345',
+    id: 'custom-restaurant-id',
     name: 'Pizza Shop',
     description: 'Um restaurante fake legal pra caramba!',
-    managerId: 'abc123',
+    managerId: 'custom-user-id',
     createdAt: '10/01/2024',
-    updatedAt: '10/01/2024',
+    updatedAt: null,
   })
 })
