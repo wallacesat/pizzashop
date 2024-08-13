@@ -43,10 +43,10 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
         ...cachedData,
         orders: cachedData.orders.map((cachedOrder) => {
           if (cachedOrder.orderId === orderId) {
-            return { ...order, status }
+            return { ...cachedOrder, status }
           }
 
-          return order
+          return cachedOrder
         }),
       })
     })
